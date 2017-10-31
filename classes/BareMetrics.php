@@ -1,6 +1,6 @@
 <?php
 
-namespace classes;
+namespace ctala\Baremetrics;
 
 /*
  * The MIT License

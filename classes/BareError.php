@@ -24,7 +24,7 @@
  * THE SOFTWARE.
  */
 
-namespace classes;
+namespace ctala\Baremetrics;
 
 /**
  * Description of BareError
