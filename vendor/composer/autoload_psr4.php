@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'classes\\' => array($baseDir . '/classes'),
+    'ctala\\Baremetrics\\' => array($baseDir . '/classes'),
 );

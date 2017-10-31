@@ -9,12 +9,12 @@ class ComposerStaticInit135668160f117097498cd6c25237fa32
     public static $prefixLengthsPsr4 = array (
         'c' => 
         array (
-            'classes\\' => 8,
+            'ctala\\Baremetrics\\' => 18,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'classes\\' => 
+        'ctala\\Baremetrics\\' => 
         array (
             0 => __DIR__ . '/../..' . '/classes',
         ),
