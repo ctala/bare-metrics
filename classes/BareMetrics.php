@@ -198,6 +198,25 @@ class BareMetrics {
         return $this->checkResponse();
     }
 
+    public function showSummary($start_date = null, $end_date = null) {
+        if ($start_date == null) {
+            $start_date = date("Y-m-d");
+        }
+        if ($end_date == null) {
+            $end_date = date("Y-m-d");
+        }
+
+        $params = array(
+            "start_date" => $start_date,
+            "end_date" => $end_date
+        );
+
+
+        $url = $this->url . DIRECTORY_SEPARATOR . self::API_VERSION . DIRECTORY_SEPARATOR . "metrics";
+        $this->curl->get($url, $params);
+        return $this->checkResponse();
+    }
+
     public function checkResponse() {
         $curl = $this->curl;
         if ($curl->error) {
