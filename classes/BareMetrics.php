@@ -201,7 +201,7 @@ class BareMetrics {
     public function checkResponse() {
         $curl = $this->curl;
         if ($curl->error) {
-            throw new BareError($curl->error_message, $curl->error_code);
+            throw new BareError($curl->error_message, $curl->error_code, NULL, $curl->getOpt(CURLINFO_EFFECTIVE_URL));
         } else {
             return json_decode($curl->response);
         }

@@ -34,17 +34,24 @@ namespace ctala\Baremetrics;
 class BareError extends \Exception {
 
     var $url;
+    var $salto;
 
     public function __construct(string $message = "", int $code = 0, \Throwable $previous = null, $url = null) {
         parent::__construct($message, $code, $previous);
         $this->url = $url;
+        $isCLI = ( php_sapi_name() == 'cli' );
+        if ($isCLI) {
+            $this->salto = "\n";
+        } else {
+            $this->salto = "<br>";
+        }
     }
 
     function errorMessage() {
 
-        $errorMsg = "<br>Error " . $this->getCode();
-        $errorMsg .= " connecting to $this->url.";
-        $errorMsg .= "<br>\t" . $this->getMessage() . "<br>";
+        $errorMsg = "Error " . $this->getCode();
+        $errorMsg .= " connecting to $this->url.".$this->salto;
+        $errorMsg .= "\t" . $this->getMessage() . $this->salto;
 
         return $errorMsg;
     }
