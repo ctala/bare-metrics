@@ -1,0 +1,21 @@
+{
+    "name": "ctala/bare-metrics",
+    "description": "PHP LIBRARY TO CONNECT TO BAREMETRICS",
+    "type": "library",
+    "require": {
+        "curl/curl": "^1.8"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cristian Tala",
+            "email": "yomismo@cristiantala.cl"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "classes\\": "classes/"
+        }
+    }
+}
