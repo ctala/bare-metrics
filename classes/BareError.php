@@ -35,10 +35,14 @@ class BareError extends \Exception {
 
     var $url;
     var $salto;
+    /* @var $curl \Curl\Curl */
+    var $curl;
 
-    public function __construct(string $message = "", int $code = 0, \Throwable $previous = null, $url = null) {
+    public function __construct(string $message = "", int $code = 0, \Throwable $previous = null, $curl = null) {
         parent::__construct($message, $code, $previous);
-        $this->url = $url;
+        $this->curl = $curl;
+        $this->url = $curl->getEndpoint();
+        
         $isCLI = ( php_sapi_name() == 'cli' );
         if ($isCLI) {
             $this->salto = "\n";
@@ -52,6 +56,7 @@ class BareError extends \Exception {
         $errorMsg = "Error " . $this->getCode();
         $errorMsg .= " connecting to $this->url.".$this->salto;
         $errorMsg .= "\t" . $this->getMessage() . $this->salto;
+//        $errorMsg .= print_r($this->curl,true);
 
         return $errorMsg;
     }

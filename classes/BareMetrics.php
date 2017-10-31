@@ -170,7 +170,7 @@ class BareMetrics {
             'started_at' => time()
         );
         $allParams = array_merge($paramsDefault, $params);
-        $this->curl->put($url, $allParams);
+        $this->curl->post($url, $allParams);
         return $this->checkResponse();
     }
 
@@ -201,7 +201,7 @@ class BareMetrics {
     public function checkResponse() {
         $curl = $this->curl;
         if ($curl->error) {
-            throw new BareError($curl->error_message, $curl->error_code, NULL, $curl->getOpt(CURLINFO_EFFECTIVE_URL));
+            throw new BareError($curl->error_message, $curl->error_code, NULL, $curl);
         } else {
             return json_decode($curl->response);
         }
