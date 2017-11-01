@@ -68,8 +68,8 @@ class BareMetrics {
     public function setOps($ops = array()) {
 
         $opsDefault = array(
-            CURLOPT_CONNECTTIMEOUT => 5,
-            CURLOPT_TIMEOUT => 10
+            "CURLOPT_CONNECTTIMEOUT" => 5,
+            "CURLOPT_TIMEOUT" => 10
         );
 
         $allOps = array_merge($opsDefault, $ops);
