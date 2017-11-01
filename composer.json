@@ -13,7 +13,8 @@
         "curl/curl": "^1.8"
     },
     "require-dev": {
-        "phpdocumentor/phpdocumentor": "2.*"
+        "phpdocumentor/phpdocumentor": "2.*",
+        "victorjonsson/markdowndocs": "dev-master"
     },
     "minimum-stability": "dev",
     "autoload": {

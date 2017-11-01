@@ -289,6 +289,10 @@ class ComposerStaticInit135668160f117097498cd6c25237fa32
             array (
                 0 => __DIR__ . '/..' . '/erusev/parsedown',
             ),
+            'PHPDocsMD' => 
+            array (
+                0 => __DIR__ . '/..' . '/victorjonsson/markdowndocs/src',
+            ),
         ),
         'M' => 
         array (
