@@ -47,16 +47,35 @@ class BareMetrics {
      * @param type $bearerKey
      * @param type $sandbox
      */
-    function __construct($bearerKey, $sandbox = false) {
+    function __construct($bearerKey, $sandbox = false, $ops = array()) {
         $this->curl = new Curl();
         $this->curl->setUserAgent('');
         $this->curl->setReferrer('');
         $this->curl->setHeader('Authorization', "Bearer $bearerKey");
+        $this->setOps($ops);
 
         if ($sandbox == false) {
             $this->url = self::LIVE_API_URL;
         } else {
             $this->url = self::SANDBOX_API_URL;
+        }
+    }
+
+    /**
+     * 
+     * @param type $ops
+     */
+    public function setOps($ops = array()) {
+
+        $opsDefault = array(
+            CURLOPT_CONNECTTIMEOUT => 5,
+            CURLOPT_TIMEOUT => 10
+        );
+
+        $allOps = array_merge($opsDefault, $ops);
+
+        foreach ($allOps as $key => $value) {
+            $this->curl->setOpt($key, $value);
         }
     }
 
