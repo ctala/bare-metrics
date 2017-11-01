@@ -67,13 +67,11 @@ class BareMetrics {
      */
     public function setOps($ops = array()) {
 
-        $opsDefault = array(
-            "CURLOPT_CONNECTTIMEOUT" => 5,
-            "CURLOPT_TIMEOUT" => 10
-        );
+        $opsDefault[CURLOPT_CONNECTTIMEOUT] = 5;
+        $opsDefault[CURLOPT_TIMEOUT] = 10;
 
-        $allOps = array_merge($opsDefault, $ops);
-
+        $allOps = $opsDefault + $ops;
+        
         foreach ($allOps as $key => $value) {
             $this->curl->setOpt($key, $value);
         }
